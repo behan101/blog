@@ -1,0 +1,23 @@
+<h1> Our Blog </h1>
+
+
+<table class="table table-striped">
+		<th>Title</th>
+		<th>Content</th>
+
+	<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.title %></td>
+		  <td><%= post.content %></td>
+			<td>
+				<%= link_to "Edit", edit_post_path(post), class: "btn btn-primary" %></p>
+		  </td>
+			<td>
+			<%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %>
+			</td>
+</tr>
+			
+	<% end %>
+</table>
+
+<p><%= link_to "Add a New Post", new_post_path %></p>
